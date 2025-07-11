@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour, IHitable
 {
     [SerializeField] private Slider hpBar;
+    [SerializeField] public Transform attackObj;
+    [SerializeField] private SoBuild firstSkill;
     private bool invincibility = false;
     private float invinTime;
 
@@ -23,6 +25,8 @@ public class Player : MonoBehaviour, IHitable
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         invinTime = playerStat.invincibilityTime;
+
+        PlayerBuild.Instance.AddBuild(firstSkill);
     }
 
     void Update()
@@ -42,7 +46,17 @@ public class Player : MonoBehaviour, IHitable
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
 
-        sprite.flipX = moveX > 0 ? true : moveX < 0 ? false : sprite.flipX;
+        if(moveX > 0)
+        {
+            sprite.flipX = true;
+            attackObj.position = new Vector3(Mathf.Abs(attackObj.position.x), attackObj.position.y);
+
+        }
+        else if(moveX < 0)
+        {
+            sprite.flipX = false;
+            attackObj.position = new Vector3(-Mathf.Abs(attackObj.position.x), attackObj.position.y);
+        }
 
         moveDirection = new Vector2(moveX, moveY).normalized;
     }

@@ -26,7 +26,7 @@ public class PlayerStat : MonoBehaviour
     private PlayerBuild build;
     private void Awake()
     {
-        build = GetComponent<PlayerBuild>();
+        build = PlayerBuild.Instance.GetComponent<PlayerBuild>();
     }
     private void Start()
     {

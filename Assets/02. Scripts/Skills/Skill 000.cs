@@ -5,19 +5,6 @@ using UnityEngine;
 public class Skill000 : Skill
 {
     [SerializeField] private GameObject bulletPrefab;
-    public string enemyTag = "Enemy";
-
-    private float cooltime = 0;
-    void Update()
-    {
-        cooltime += Time.deltaTime;
-
-        if (cooltime >= soSkill.mCooltime)
-        {
-            cooltime = 0;
-            Attack();
-        }
-    }
 
     public override void Attack()
     {
@@ -25,12 +12,12 @@ public class Skill000 : Skill
 
         if (target != null)
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position + new Vector3(0,1.6f), Quaternion.identity);
             bullet.GetComponent<Bullet>().start = gameObject;
             bullet.GetComponent<Bullet>().damage = soSkill.mAtk;
             bullet.GetComponent<Bullet>().range = soSkill.mProjectileDistance;
 
-            Vector3 direction = (target.transform.position - transform.position).normalized;
+            Vector3 direction = (target.transform.position - bullet.transform.position).normalized;
 
             Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
             if (rigid != null)
@@ -44,26 +31,5 @@ public class Skill000 : Skill
         }
     }
 
-    private GameObject FindClosestEnemy()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        GameObject closest = null;
-        float minDistance = Mathf.Infinity;
-        Vector3 currentPosition = transform.position;
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distance = Vector3.Distance(currentPosition, enemy.transform.position);
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                closest = enemy;
-            }
-        }
-
-        return closest;
-    }
-
-
-
+    
 }

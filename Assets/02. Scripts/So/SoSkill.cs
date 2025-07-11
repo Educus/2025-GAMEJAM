@@ -31,6 +31,7 @@ public class SoSkill : ScriptableObject
     [Header("½ºÅ³ ±Ã±Ø")]
     public bool isSkill3 = false;
 
+    public GameObject mSkillPrefab => skillPrefab;
     public int mAtk => atk;
     public float mCooltime => cooltime;
     public SkillType mSkillType => skillType;

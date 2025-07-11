@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBuild : MonoBehaviour
+public class PlayerBuild : Singleton<PlayerBuild>
 {
     [SerializeField] private List<SoBuild> buildList = new List<SoBuild>();
-    [SerializeField] GameObject attackObj;
+    private GameObject attackObj = null;
 
     private List<SoSkill> skillList = new List<SoSkill>();
     private List<SoStat> statList = new List<SoStat>();
@@ -19,10 +19,6 @@ public class PlayerBuild : MonoBehaviour
     public float captureSpeed {get; private set;} = 0;
     public float invincibilityTime {get; private set;} = 0;
 
-    private void Start()
-    {
-        AddSkill(buildList[0].mBuildSkill);
-    }
     public void AddBuild(SoBuild soBuild)
     {
         if (soBuild.mBuildType == BuildType.Skill)
@@ -31,18 +27,26 @@ public class PlayerBuild : MonoBehaviour
             {
                 buildList.Add(soBuild);
                 skillList.Add(soBuild.mBuildSkill);
-                AddSkill(soBuild.mBuildSkill);  
+                AddSkill(soBuild.mBuildSkill);
+                Debug.Log("스킬 생성");
             }
-            else
+            else if(soBuild.mBuildSkill.isSkill3 == true) // 궁극일때?
             {
-                // buildList에 있는 동일한 soBuild를 찾음
+                SoBuild existingBuild = buildList.Find(b => b == soBuild);
+
+                existingBuild.mBuildSkill.isSkill2 = true;
+                existingBuild.mBuildSkill.isSkill3 = true;
+
+            }
+            else // 중복 획득일 때
+            {
                 SoBuild existingBuild = buildList.Find(b => b == soBuild);
 
                 if (existingBuild.mBuildSkill.isSkill1 == false)
                 {
                     existingBuild.mBuildSkill.isSkill1 = true;
                 }
-                else if(existingBuild.mBuildSkill.isSkill2 == false)
+                else if (existingBuild.mBuildSkill.isSkill2 == false)
                 {
                     existingBuild.mBuildSkill.isSkill2 = true;
                 }
@@ -57,7 +61,9 @@ public class PlayerBuild : MonoBehaviour
     }
     private void AddSkill(SoSkill soSkill)
     {
-        // soSkill.ga
+        attackObj = GameManager.Instance.player.attackObj.gameObject;
+        GameObject skill = Instantiate(soSkill.mSkillPrefab, attackObj.transform.position, Quaternion.identity);
+        skill.transform.parent = attackObj.transform;
     }
     private void AddStat(SoStat soStat)
     {
@@ -69,5 +75,12 @@ public class PlayerBuild : MonoBehaviour
         moveSpeed += soStat.mMoveSpeed;
         captureSpeed += soStat.mCaptureSpeed;
         invincibilityTime += soStat.mCaptureSpeed;
+    }
+
+    public void Reset()
+    {
+        buildList.Clear();
+        statList.Clear();
+        skillList.Clear();
     }
 }
