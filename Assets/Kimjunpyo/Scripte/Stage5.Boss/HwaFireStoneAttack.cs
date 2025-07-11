@@ -18,8 +18,15 @@ public class HwaFireStoneAttack : IHwaBossState
 
         for (int i = 0; i < 3; i++)
         {
+            // 화염 돌 생성
             GameObject stone = GameObject.Instantiate(boss.fireStonePrefab, boss.transform.localPosition + Vector3.up, Quaternion.identity);
-            stone.GetComponent<FireStone>().Initialize(boss.player, 1.5f, 5f);
+
+            // 플레이어를 타겟으로 설정
+            if (boss.player != null)
+            {
+                stone.GetComponent<FireStone>().Initialize(boss.player, 5f, 10f); // 속도와 수명 설정
+            }
+
             yield return new WaitForSeconds(0.5f); // 돌간 발사 간격
         }
 

@@ -7,6 +7,7 @@ using System.Collections;
 public class HwaEarthquakeAttack : IHwaBossState
 {
     private HwaBossController boss;
+    public ParticleSystem warningEffect; // 퍼블릭으로 설정하여 Unity 인스펙터에서 할당
 
     public void OnEnter(HwaBossController boss)
     {
@@ -17,11 +18,6 @@ public class HwaEarthquakeAttack : IHwaBossState
 
     IEnumerator DoEarthquake()
     {
-        // 경고 이펙트 표시
-        GameObject warn = GameObject.Instantiate(boss.warningFanFX, boss.transform.localPosition, Quaternion.identity);
-        warn.transform.LookAt(boss.player);
-        GameObject.Destroy(warn, 1.5f);
-
         yield return new WaitForSeconds(1.5f); // 시전 대기 시간
 
         // 공격 판정
@@ -30,8 +26,12 @@ public class HwaEarthquakeAttack : IHwaBossState
         {
             if (col.CompareTag("Player"))
             {
-                col.GetComponent<Player>().IHit(20); // 데미지
-                col.GetComponent<Player>().Stun(1.0f); // 1초 기절
+                if (col.GetComponent<Player>() != null)
+                {
+                    col.GetComponent<Player>().IHit(20); // 데미지
+                    col.GetComponent<Player>().Stun(1.0f); // 1초 기절
+                }
+                
             }
         }
 
