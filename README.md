@@ -1,6 +1,6 @@
 # 2025-GAMEJAM
 
-# Cat for Me!
+## Cat for Me!
 
 
 ### 게임소개
