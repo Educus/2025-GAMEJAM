@@ -12,12 +12,16 @@ public class Player : MonoBehaviour, IHitable
     private float invinTime;
 
     private PlayerStat playerStat;
+    private SpriteRenderer sprite;
     private Rigidbody2D rigid;
+    private Animator anim;
     private Vector2 moveDirection;
     void Start()
     {
         playerStat = GetComponent<PlayerStat>();
+        sprite = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         invinTime = playerStat.invincibilityTime;
     }
 
@@ -30,13 +34,16 @@ public class Player : MonoBehaviour, IHitable
     private void FixedUpdate()
     {
         rigid.MovePosition(rigid.position + moveDirection * playerStat.moveSpeed * Time.fixedDeltaTime);
+        anim.SetInteger("Speed", (int)playerStat.moveSpeed);
         HpBar();
     }
-
     private void Move()
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
+
+        sprite.flipX = moveX > 0 ? true : moveX < 0 ? false : sprite.flipX;
+
         moveDirection = new Vector2(moveX, moveY).normalized;
     }
     private void Invincibility()

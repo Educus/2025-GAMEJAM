@@ -6,6 +6,7 @@ public class Skill000 : Skill
 {
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private float range = 5f;
     public string enemyTag = "Enemy";
 
     private float cooltime = 0;
@@ -27,6 +28,9 @@ public class Skill000 : Skill
         if (target != null)
         {
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            bullet.GetComponent<Bullet>().start = gameObject;
+            bullet.GetComponent<Bullet>().damage = soSkill.mAtk;
+            bullet.GetComponent<Bullet>().range = range;
 
             Vector3 direction = (target.transform.position - transform.position).normalized;
 
