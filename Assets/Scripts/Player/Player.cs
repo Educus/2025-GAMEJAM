@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,7 +47,7 @@ public class Player : MonoBehaviour, IHitable
             if (invinTime <= 0)
             {
                 invincibility = false;
-                invinTime = playerStat.invincibilityTime; // ÃÊ±âÈ­
+                invinTime = playerStat.invincibilityTime; // ï¿½Ê±ï¿½È­
             }
         }
     }
@@ -61,14 +63,30 @@ public class Player : MonoBehaviour, IHitable
 
     public void IHit(int damage)
     {
-        if(invincibility)
+        if (invincibility)
         {
-            return; // ¹«Àû »óÅÂ¸é µ¥¹ÌÁö ¹«½Ã
+            return; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
 
         playerStat.Damage(damage);
         Debug.Log($"Player hit! Remaining HP: {playerStat.hp}");
 
-        invincibility = true; // ¹«Àû »óÅÂ·Î ÀüÈ¯
+        invincibility = true; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½È¯
+    }
+
+     public void Stun(float duration)
+    {
+        StartCoroutine(StunCoroutine(duration));
+    }
+
+    private IEnumerator StunCoroutine(float duration)
+    {
+        moveDirection = Vector2.zero;
+        enabled = false; 
+
+        yield return new WaitForSeconds(duration);
+
+        enabled = true;
     }
 }
+
