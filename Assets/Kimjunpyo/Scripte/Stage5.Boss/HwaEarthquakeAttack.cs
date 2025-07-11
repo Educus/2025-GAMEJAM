@@ -22,7 +22,7 @@ public class HwaEarthquakeAttack : IHwaBossState
         warn.transform.LookAt(boss.player);
         GameObject.Destroy(warn, 1.5f);
 
-        yield return new WaitForSeconds(1.5f); // 시전 대기시간
+        yield return new WaitForSeconds(1.5f); // 시전 대기 시간
 
         // 공격 판정
         Collider2D[] targets = Physics2D.OverlapCircleAll(boss.transform.localPosition, 8f);

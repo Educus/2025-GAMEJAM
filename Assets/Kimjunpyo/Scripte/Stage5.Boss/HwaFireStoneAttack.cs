@@ -14,13 +14,13 @@ public class HwaFireStoneAttack : IHwaBossState
 
     IEnumerator LaunchStones()
     {
-        yield return new WaitForSeconds(0.5f); // 시전 대기시간
+        yield return new WaitForSeconds(1f); // 시전 대기 시간
 
         for (int i = 0; i < 3; i++)
         {
             GameObject stone = GameObject.Instantiate(boss.fireStonePrefab, boss.transform.localPosition + Vector3.up, Quaternion.identity);
             stone.GetComponent<FireStone>().Initialize(boss.player, 1.5f, 5f);
-            yield return new WaitForSeconds(0.2f); // 돌간 발사 간격
+            yield return new WaitForSeconds(0.5f); // 돌간 발사 간격
         }
 
         boss.ChangeState(new HwaIdleState()); // 대기 상태로 전환
