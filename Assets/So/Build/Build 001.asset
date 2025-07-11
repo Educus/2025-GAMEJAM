@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fd4c14cc446b8444bb8eb93b6d80361, type: 3}
-  m_Name: Build
+  m_Name: Build 001
   m_EditorClassIdentifier: 
   buildSprite: {fileID: 0}
-  buildKorName: 
+  buildKorName: "\uCF00\uD2C0\uB9C1 \uB0E5\uAC74"
   buildDescription: 
-  atk: 0
-  speed: 0
+  buildType: 0
+  upgradeBuild: {fileID: 0}
