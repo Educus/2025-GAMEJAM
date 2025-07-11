@@ -25,21 +25,39 @@ public class PlayerBuild : MonoBehaviour
     }
     public void AddBuild(SoBuild soBuild)
     {
-        buildList.Add(soBuild);
         if (soBuild.mBuildType == BuildType.Skill)
         {
-            skillList.Add(soBuild.mBuildSkill);
-            AddSkill(soBuild.mBuildSkill);
+            if (!buildList.Contains(soBuild))
+            {
+                buildList.Add(soBuild);
+                skillList.Add(soBuild.mBuildSkill);
+                AddSkill(soBuild.mBuildSkill);  
+            }
+            else
+            {
+                // buildList에 있는 동일한 soBuild를 찾음
+                SoBuild existingBuild = buildList.Find(b => b == soBuild);
+
+                if (existingBuild.mBuildSkill.isSkill1 == false)
+                {
+                    existingBuild.mBuildSkill.isSkill1 = true;
+                }
+                else if(existingBuild.mBuildSkill.isSkill2 == false)
+                {
+                    existingBuild.mBuildSkill.isSkill2 = true;
+                }
+            }
         }
         else if (soBuild.mBuildType == BuildType.Stat)
         {
+            buildList.Add(soBuild);
             statList.Add(soBuild.mBuildStat);
             AddStat(soBuild.mBuildStat);
         }
     }
     private void AddSkill(SoSkill soSkill)
     {
-        // 강화 스킬 추가시 기존 스킬이 하나일 경우 하나 더 추가
+        // soSkill.ga
     }
     private void AddStat(SoStat soStat)
     {

@@ -5,8 +5,6 @@ using UnityEngine;
 public class Skill000 : Skill
 {
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float bulletSpeed = 10f;
-    [SerializeField] private float range = 5f;
     public string enemyTag = "Enemy";
 
     private float cooltime = 0;
@@ -30,14 +28,14 @@ public class Skill000 : Skill
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             bullet.GetComponent<Bullet>().start = gameObject;
             bullet.GetComponent<Bullet>().damage = soSkill.mAtk;
-            bullet.GetComponent<Bullet>().range = range;
+            bullet.GetComponent<Bullet>().range = soSkill.mProjectileDistance;
 
             Vector3 direction = (target.transform.position - transform.position).normalized;
 
             Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
             if (rigid != null)
             {
-                rigid.velocity = direction * bulletSpeed;
+                rigid.velocity = direction * soSkill.mProjectileSpeed;
             }
             else
             {
