@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca85af7e534204a9becff73d5b6292, type: 3}
+  m_Name: Enemy 003
+  m_EditorClassIdentifier: 
+  enemySprite: {fileID: 0}
+  enemyId: 3
+  enemyKorName: "\uC11D\uB098\uC784"
+  enemyDescription: "\uC65C\uC778\uC9C4 \uBAA8\uB974\uACA0\uC9C0\uB9CC \uC369\uB098\uAC04
+    \uC2AC\uB77C\uC784\uC774\uB2E4. \uB048\uC801\uD558\uACE0 \uAE30\uBD84\uB098\uC05C
+    \uBB34\uC5B8\uAC00\uB97C \uBC49\uC5B4\uC11C \uACF5\uACA9\uD55C\uB2E4."
+  enemyType: 1
+  hp: 10
+  moveSpeed: 0
+  atk: 5
+  atkSpeed: 0
+  atkRange: 0
+  exp: 0
