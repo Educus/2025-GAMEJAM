@@ -36,7 +36,7 @@ public class FollowCamera : MonoBehaviour
 
         // 4. 경계 안으로 제한
         float clampedX = Mathf.Clamp(targetPos.x, minX, maxX);
-        float clampedY = Mathf.Clamp(targetPos.y, minY, maxY);
+        float clampedY = Mathf.Clamp(targetPos.y + 1, minY, maxY);
 
         // 5. 최종 위치 적용
         transform.position = new Vector3(clampedX, clampedY, targetPos.z);
