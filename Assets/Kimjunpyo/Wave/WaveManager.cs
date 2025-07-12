@@ -8,6 +8,20 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;              // 적 스폰 위치
     [SerializeField] private float spawnInterval = 30f;            // 웨이브 간격 시간
 
+    public static WaveManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
+
+    public void SpawnWaveExternal()
+    {
+        StartCoroutine(SpawnWave());
+    }
+
+
     private int currentWaveIndex = 0;
     private float timer;
     private bool isWaveSpawning = false;
@@ -31,7 +45,7 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnWave()
+    public IEnumerator SpawnWave()
     {
         isWaveSpawning = true;
 
