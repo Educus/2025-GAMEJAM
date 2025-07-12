@@ -11,6 +11,7 @@ public class FollowCamera : MonoBehaviour
 
     private void Start()
     {
+        player = GameManager.Instance.player.transform;
         camera = GetComponent<Camera>();
         cameraHalfHeight = camera.orthographicSize;
         cameraHalfWidth = camera.aspect * cameraHalfHeight;

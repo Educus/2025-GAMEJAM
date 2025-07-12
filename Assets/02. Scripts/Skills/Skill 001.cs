@@ -34,6 +34,7 @@ public class Skill001 : Skill
         GameObject target = FindClosestEnemys();
         
         if (target == null) target = FindClosestEnemy();
+        if (target == null) { target = new GameObject(); Debug.Log(target.transform.position.x); }
 
         geteling.parent = gameObject;
         geteling.target = target;

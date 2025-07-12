@@ -68,9 +68,9 @@ public class Enemy : MonoBehaviour, IHitable
 
         Vector2 direction = (target.transform.position - transform.position);
         
-        if (direction.x > 0)
+        if (direction.x < 0)
             sprite.flipX = false;
-        else if (direction.x < 0)
+        else if (direction.x > 0)
             sprite.flipX = true;
     }
 

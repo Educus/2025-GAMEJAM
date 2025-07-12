@@ -14,12 +14,12 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
 
         // 씬 로드 이벤트에 등록
-        // SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     private void OnDestroy()
     {
         // 씬 이벤트 연결 해제 (메모리 누수 방지)
-        // SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
