@@ -45,6 +45,9 @@ public class CapturePoint : MonoBehaviour
             isCaptured = true;
             Debug.Log("점령 완료!");
             // 점령 후 효과 넣고 싶으면 여기!
+
+            BuildCardManager.Instance.ShowBuildChoicesUI();
+            Destroy(gameObject);
         }
     }
 

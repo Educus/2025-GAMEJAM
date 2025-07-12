@@ -64,4 +64,8 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(0);
     }
 
+    public void StageClear()
+    {
+        clear[SceneManager.GetActiveScene().buildIndex - 2] = true;
+    }
 }

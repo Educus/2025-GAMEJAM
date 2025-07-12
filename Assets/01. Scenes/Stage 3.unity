@@ -507,6 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b204ef40641b9f4da31821460556ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  capturePoint: {fileID: 6449251117075661859, guid: a35a821f076817d4c866d23df722e5f4, type: 3}
   waves:
   - {fileID: 11400000, guid: c43ab0c3b33f94548872bcde236233d1, type: 2}
   - {fileID: 11400000, guid: e1b294593ccc1f84abe312b6a0144e48, type: 2}

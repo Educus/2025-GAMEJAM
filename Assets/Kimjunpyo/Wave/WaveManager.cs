@@ -5,12 +5,15 @@ using UnityEngine.UIElements;
 
 public class WaveManager : MonoBehaviour
 {
+    [SerializeField] private GameObject capturePoint;
     [SerializeField] private List<Wave> waves;                     // 웨이브 리스트
     [SerializeField] private Vector2[] spawnPoints;              // 적 스폰 위치
     [SerializeField] private float spawnInterval = 15f;            // 웨이브 간격 시간
     [SerializeField] private Collider2D col;                        // 맵
 
     public static WaveManager Instance;
+
+    private bool isClearTriggered = false;
 
     private void Awake()
     {
@@ -31,6 +34,7 @@ public class WaveManager : MonoBehaviour
     private void Start()
     {
         SpawnPoints();
+        SpawnCapturePoint();
     }
 
     private void SpawnPoints()
@@ -65,11 +69,28 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+    private void SpawnCapturePoint()
+    {
+        Instantiate(capturePoint, spawnPoints[0], Quaternion.identity);
+        Instantiate(capturePoint, spawnPoints[1], Quaternion.identity);
+        Instantiate(capturePoint, spawnPoints[2], Quaternion.identity);
+    }
+
+
     private void Update()
     {
         if (isWaveSpawning) return;
 
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        int enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        if (currentWaveIndex >= waves.Count && enemyCount == 0 && !isClearTriggered)
+        {
+            isClearTriggered = true;
+            Clear();
+            return;
+        }
+
+        if (enemyCount == 0 && currentWaveIndex < waves.Count)
         {
             timer += Time.deltaTime;
             if (timer >= spawnInterval)
@@ -121,4 +142,10 @@ public class WaveManager : MonoBehaviour
         isWaveSpawning = false;
         SpawnPoints();
     }
+
+    private void Clear()
+    {
+        GameManager.Instance.StageClear();
+    }
+
 }
