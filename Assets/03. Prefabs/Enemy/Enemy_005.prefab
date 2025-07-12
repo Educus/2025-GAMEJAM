@@ -183,5 +183,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e08718e250fbb40837e17fad722159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 0}
-  projectilePrefab: {fileID: 7581745514595304157, guid: 04e5998d13607914280fc704e96aebfd, type: 3}
+  enemyData: {fileID: 11400000, guid: 472614fb38f14c64c9050e2426cb9fa3, type: 2}
+  projectilePrefab: {fileID: 3349708774258805146, guid: 0741763a871e59446a8794dc6c01bc47, type: 3}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillPrefab: {fileID: 2630208621623280851, guid: 1eec1593725f9ed4bbcafc5fe11d40df, type: 3}
   atk: 10
-  cooltime: 10
+  cooltime: 20
   skillType: 1
   projectileDistance: 5
   projectileSpeed: 5
