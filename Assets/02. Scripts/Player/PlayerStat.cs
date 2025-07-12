@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerStat : MonoBehaviour
 {
     [SerializeField] private int fmaxHp = 100;
-    [SerializeField] private int fatk = 20;
-    [SerializeField] private float frange = 5f;
-    [SerializeField] private float fatkCount = 1f;
-    [SerializeField] private float fcooltime = 1f;  // 100%
-    [SerializeField] private float fmoveSpeed = 8f;
-    [SerializeField] private float fcaptureSpeed = 1f;
-    [SerializeField] private float finvincibilityTime = 0.5f;
+    [SerializeField] private int fatk = 20;                     // 공격력
+    [SerializeField] private float frange = 5f;                 // 사거리
+    [SerializeField] private float fatkCount = 1f;              // 투사체 갯수
+    [SerializeField] private float fcooltime = 0f;              // 쿨타임 감소되는 시간
+    [SerializeField] private float fmoveSpeed = 8f;             // 이동속도
+    [SerializeField] private float fcaptureSpeed = 1f;          // 점령시간
+    [SerializeField] private float finvincibilityTime = 0.5f;   // 무적시간
 
     public int maxHp { get; private set; }
     public int hp { get; private set; }

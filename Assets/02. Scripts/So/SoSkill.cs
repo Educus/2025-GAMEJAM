@@ -23,6 +23,8 @@ public class SoSkill : ScriptableObject
     [SerializeField] private float projectileDistance;
     [Header("스킬 투사체 속도")]
     [SerializeField] private float projectileSpeed;
+    [Header("스킬 투사체 갯수")]
+    [SerializeField] private float projectileCount;
 
     [Header("스킬 강화 1")]
     public bool isSkill1 = false;
@@ -37,4 +39,5 @@ public class SoSkill : ScriptableObject
     public SkillType mSkillType => skillType;
     public float mProjectileDistance => projectileDistance;
     public float mProjectileSpeed => projectileSpeed;
+    public float mProjectileCount => projectileCount;
 }

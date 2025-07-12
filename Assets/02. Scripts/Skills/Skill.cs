@@ -7,18 +7,44 @@ public abstract class Skill : MonoBehaviour
     public SoSkill soSkill;
 
     private string enemyTag = "Enemy";
+    protected bool ultmit = false;
+
+    protected int totalAtk;
+    protected float totalRange;
+    protected float totalAtkCount;
+    protected float totalCooltime;
+    protected float totalAtkSpeed;
+
+    protected int bonusAtk = 0;
+    protected float bonusRange = 0;
+    protected float bonusAtkCount = 0;
+    protected float bonusCooltime = 0;
+    protected float bonusAtkSpeed = 0;
+
     protected float cooltime = 0;
-
-
     protected virtual void Update()
     {
         cooltime += Time.deltaTime;
 
-        if (cooltime >= soSkill.mCooltime)
+        if (cooltime >= totalCooltime)
         {
             cooltime = 0;
             Attack();
         }
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        TotalStat();
+    }
+
+    private void TotalStat()
+    {
+        totalAtk = soSkill.mAtk + GameManager.Instance.player.playerStat.atk + bonusAtk;
+        totalRange = soSkill.mProjectileDistance + GameManager.Instance.player.playerStat.range + bonusRange;
+        totalAtkCount = soSkill.mProjectileCount + GameManager.Instance.player.playerStat.atkCount + bonusAtkCount;
+        totalCooltime = soSkill.mCooltime - GameManager.Instance.player.playerStat.cooltime - bonusCooltime;
+        totalAtkSpeed = soSkill.mProjectileSpeed + bonusAtkSpeed;
     }
     abstract public void Attack();
 
@@ -44,7 +70,7 @@ public abstract class Skill : MonoBehaviour
 
     protected GameObject FindClosestEnemys()
     {
-        float range = soSkill.mProjectileDistance;  // 탐지 반경
+        float range = totalRange;  // 탐지 반경
         float clusterRadius = 3f;                   // 군집 판정 거리
 
         // 2D 감지

@@ -9,6 +9,7 @@ public class Geteling : MonoBehaviour
     [HideInInspector] public GameObject target;
     [HideInInspector] public GameObject parent;
     [HideInInspector] public int damage;
+    [HideInInspector] public bool ultmit = false;
 
     private float value = 0.5f;
     private float time = 0;
@@ -22,6 +23,8 @@ public class Geteling : MonoBehaviour
 
     private void Move()
     {
+        if (!target) return;
+
         Vector3 parentPos = parent.transform.position;
 
         // 1. y축으로 0.6 올림
@@ -47,13 +50,36 @@ public class Geteling : MonoBehaviour
         {
             if(collision.tag == "Enemy")
             {
+                Debug.Log("닿음");
+
                 collision.GetComponent<IHitable>().IHit(damage);
+
+                if(ultmit)
+                {
+                    Debug.Log("밀침");
+                    Transform target = collision.transform;
+
+                    // 방향 계산
+                    Vector2 direction = (target.transform.position - parent.transform.position + new Vector3(0f, 0.6f, 0f)).normalized;
+
+                    // 위치 이동
+                    target.position += (Vector3)(direction * 2f);
+                }
             }
+
+
+            hit = false;
         }
     }
 
     private void SetTimer()
     {
+        time += Time.deltaTime;
 
+        if (time > value)
+        {
+            time = 0;
+            hit = true;
+        }
     }
 }

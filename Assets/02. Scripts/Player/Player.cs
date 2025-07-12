@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, IHitable
     private bool invincibility = false;
     private float invinTime;
 
-    private PlayerStat playerStat;
+    public PlayerStat playerStat;
     private SpriteRenderer sprite;
     private Rigidbody2D rigid;
     private Animator anim;
@@ -49,13 +49,13 @@ public class Player : MonoBehaviour, IHitable
         if(moveX > 0)
         {
             sprite.flipX = true;
-            attackObj.position = new Vector3(Mathf.Abs(attackObj.position.x), attackObj.position.y);
+            attackObj.localPosition = new Vector3(Mathf.Abs(attackObj.localPosition.x), attackObj.localPosition.y);
 
         }
         else if(moveX < 0)
         {
             sprite.flipX = false;
-            attackObj.position = new Vector3(-Mathf.Abs(attackObj.position.x), attackObj.position.y);
+            attackObj.localPosition = new Vector3(-Mathf.Abs(attackObj.localPosition.x), attackObj.localPosition.y);
         }
 
         moveDirection = new Vector2(moveX, moveY).normalized;
