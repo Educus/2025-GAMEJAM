@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dca85af7e534204a9becff73d5b6292, type: 3}
   m_Name: Enemy 007
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: 0}
+  enemyPrefab: {fileID: 7918418349823109070, guid: 9759c98067a6d7e4bb95bcd12d681289, type: 3}
   enemyId: 7
   enemyKorName: "\uB8E8\uB355"
   enemyDescription: "\uACE0\uAE09\uC9C4 \uC624\uB9AC\uB2E4. \uB3C8\uB3C4 \uB9CE\uC740\uC9C0

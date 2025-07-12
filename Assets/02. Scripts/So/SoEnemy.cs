@@ -1,43 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum EnemyType
 {
-    ShortRange, // ±Ù°Å¸®
-    LongRange,  // ¿ø°Å¸®
+    ShortRange,
+    LongRange,
 }
 
 [CreateAssetMenu(fileName = "Enemy", menuName = "So/Enemy")]
 public class SoEnemy : ScriptableObject
 {
-    [Header("¸ó½ºÅÍ Sprite")]
-    [SerializeField] private Sprite enemySprite;
-    [Header("¸ó½ºÅÍ ID")]
+    [Header("Enemy Prefab")]
+    [SerializeField] private GameObject enemyPrefab;
+    public GameObject mEnemyPrefab => enemyPrefab;
+
+    [Header("ì  ID")]
     [SerializeField] private int enemyId;
-    [Header("¸ó½ºÅÍ ÀÌ¸§")]
+    [Header("ì  ì´ë¦„")]
     [SerializeField] private string enemyKorName;
-    [Header("¸ó½ºÅÍ ¼³¸í")]
+    [Header("ì  ì„¤ëª…")]
     [SerializeField] private string enemyDescription;
-    [Header("¸ó½ºÅÍ Å¸ÀÔ")]
+    [Header("ì  íƒ€ì…")]
     [SerializeField] private EnemyType enemyType;
-    [Header("¸ó½ºÅÍ Ã¼·Â")]
+    [Header("ì²´ë ¥")]
     [SerializeField] private int hp;
-    [Header("¸ó½ºÅÍ ÀÌµ¿¼Óµµ")]
+    [Header("ì´ë™ì†ë„")]
     [SerializeField] private float moveSpeed;
-    [Header("¸ó½ºÅÍ °ø°İ·Â")]
+    [Header("ê³µê²©ë ¥")]
     [SerializeField] private int atk;
-    [Header("¸ó½ºÅÍ °ø°İ ¼Óµµ")]
+    [Header("ê³µê²© ì†ë„")]
     [SerializeField] private float atkSpeed;
-    [Header("¸ó½ºÅÍ °ø°İ »ç°Å¸®")]
+    [Header("ê³µê²© ì‚¬ì •ê±°ë¦¬")]
     [SerializeField] private float atkRange;
-    [Header("¸ó½ºÅÍ °æÇèÄ¡")]
+    [Header("ê²½í—˜ì¹˜")]
     [SerializeField] private int exp;
 
-    public Sprite mEnemySprite => enemySprite;
     public int mEnemyId => enemyId;
     public string mEnemyName => enemyKorName;
     public string mEnemyDescription => enemyDescription;
+    public EnemyType mEnemyType => enemyType;
     public int mHp => hp;
     public float mMoveSpeed => moveSpeed;
     public int mAtk => atk;

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dca85af7e534204a9becff73d5b6292, type: 3}
   m_Name: Enemy 005
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: 0}
+  enemyPrefab: {fileID: 8478054573593184145, guid: abf1317022e4a6d47b4c7dd24343efcc, type: 3}
   enemyId: 5
-  enemyKorName: "\uC804\uAC10"
-  enemyDescription: "\uC804\uAC08\uC774\uB2E4. \uAC00\uB294 \uAE38\uC5D0 \uB3C5\uCE68\uC744
-    \uB358\uC838\uC11C \uACF5\uACA9\uD55C\uB2E4."
+  enemyKorName: "\uC0AC\uB9C9\uC5EC\uC6B0"
+  enemyDescription: "\uC0AC\uB9C9 \uC5EC\uC6B0\uB2E4. \uAF2C\uB9AC\uAC00 \uB2EC\uB9B0\uAC83\uACFC\uB294
+    \uB2E4\uB974\uAC8C, \uC785\uC5D0\uC11C \uC5EC\uC6B0 \uBD88\uC744 \uBC1C\uC0AC\uD55C\uB2E4."
   enemyType: 1
   hp: 10
   moveSpeed: 0

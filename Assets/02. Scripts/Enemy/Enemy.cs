@@ -6,9 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class Enemy : MonoBehaviour, IHitable
 {
-    [SerializeField] SoEnemy enemyData;
+    private SoEnemy enemyData;
 
-    private Sprite enemySprite;
     private string enemyKorName;
     private string enemyDescription;
     private int maxHp;
@@ -17,25 +16,19 @@ public class Enemy : MonoBehaviour, IHitable
 
     private SpriteRenderer sprite;
     private Rigidbody2D rigid;
-    private CapsuleCollider2D collider;
+    private CapsuleCollider2D enemycollider;
 
     private GameObject target;
 
     private int hp;
 
-    private void Awake()
-    {
-        EnemyData();   
-    }
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
-        collider = GetComponent<CapsuleCollider2D>();
-
+        enemycollider = GetComponent<CapsuleCollider2D>();
         hp = maxHp;
     }
-
 
     void Update()
     {
@@ -43,21 +36,26 @@ public class Enemy : MonoBehaviour, IHitable
         MoveToTarget();
     }
 
-    private void EnemyData()
+    public void SetData(SoEnemy data, float hpMultiplier, float atkMultiplier)
     {
-        if (enemyData != null)
+        if (data == null)
         {
-            enemySprite = enemyData.mEnemySprite;
-            enemyKorName = enemyData.mEnemyName;
-            enemyDescription = enemyData.mEnemyDescription;
-            maxHp = enemyData.mHp;
-            atk = enemyData.mAtk;
-            speed = enemyData.mMoveSpeed;
+            Debug.LogError("Enemy SO is null!");
+            return;
         }
-        else
-        {
-            Debug.LogError("Enemy data is not assigned!");
-        }
+
+        enemyData = data;
+
+        enemyKorName = data.mEnemyName;
+        enemyDescription = data.mEnemyDescription;
+        maxHp = Mathf.RoundToInt(data.mHp * hpMultiplier);
+        atk = Mathf.RoundToInt(data.mAtk * atkMultiplier);
+        speed = data.mMoveSpeed;
+
+        hp = maxHp;
+
+        // Ïä§ÌîÑÎùºÏù¥Ìä∏Îäî ÌîÑÎ¶¨ÌåπÏóê ÏÑ§Ï†ïÎêú SpriteRenderer Í∏∞Ï§Ä
+        // Îã®, ÌïÑÏöîÏãú sprite.sprite = ... ÏúºÎ°ú ÍµêÏ≤¥ Í∞ÄÎä•
     }
 
     private void FindPlayer()
@@ -65,23 +63,21 @@ public class Enemy : MonoBehaviour, IHitable
         if (target == null)
         {
             if (GameManager.Instance.player == null) return;
-
             target = GameManager.Instance.player.gameObject;
         }
     }
+
     private void MoveToTarget()
     {
+        if (target == null) return;
+
         Vector2 direction = (target.transform.position - transform.position).normalized;
         rigid.velocity = direction * speed;
 
         if (direction.x > 0)
-        {
-            sprite.flipX = false; // ø¿∏•¬ ¿ª πŸ∂Û∫∏µµ∑œ
-        }
+            sprite.flipX = false;
         else if (direction.x < 0)
-        {
-            sprite.flipX = true; // øﬁ¬ ¿ª πŸ∂Û∫∏µµ∑œ
-        }
+            sprite.flipX = true;
     }
 
     public void IHit(int damage)
@@ -89,28 +85,22 @@ public class Enemy : MonoBehaviour, IHitable
         hp -= damage;
 
         if (hp <= 0)
-        {
             Dead();
-        }
     }
 
     private void Dead()
     {
-        // ∞Ê«Ëƒ° ø¿∫Í µÂ∂¯
         // GameManager.Instance.player.GetComponent<Player>().GainExp(enemyData.mExp);
-        // ∏ÛΩ∫≈Õ ¡¶∞≈
         Destroy(gameObject);
     }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             IHitable hitable = collision.gameObject.GetComponent<IHitable>();
-
             if (hitable != null)
-            {
                 hitable.IHit(atk);
-            }
         }
     }
 }

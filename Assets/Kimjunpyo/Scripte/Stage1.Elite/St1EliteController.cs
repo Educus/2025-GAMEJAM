@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class St1EliteController : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class St1EliteController : MonoBehaviour
     public float attackCooldown = 7f;      // 스킬 주기
     public float attackRange = 10f;        // 공격 범위
     public float moveSpeed = 2f;           // 이동 속도
+    public float followSpeed = 5f;
     private float timer = 0f;              // 쿨타임 타이머
+    
 
     private St1EliteState currentState;    // 현재 상태
 

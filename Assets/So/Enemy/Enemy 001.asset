@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dca85af7e534204a9becff73d5b6292, type: 3}
   m_Name: Enemy 001
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: 0}
+  enemyPrefab: {fileID: 7392667661524791038, guid: 57f9ea2015507a04280bb871abc35fdd, type: 3}
   enemyId: 1
   enemyKorName: "\uBC14\uC2A4\uC6DC"
   enemyDescription: "\uB9D0 \uADF8\uB300\uB85C \uBC14\uC704 \uADF8 \uC774\uC0C1 \uADF8
     \uC774\uD558\uB3C4 \uC544\uB2C8\uB2E4. \uB3CC\uC744 \uBC49\uC5B4\uC11C \uACF5\uACA9\uD55C\uB2E4."
   enemyType: 1
-  hp: 999999
-  moveSpeed: 3
+  hp: 100
+  moveSpeed: 2
   atk: 5
   atkSpeed: 0
   atkRange: 0

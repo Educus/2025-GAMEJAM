@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
-    private Vector3 targetPosition; // 락이 떨어질 위치
+    public Vector3 targetPosition; // 락이 떨어질 위치
     private GameObject impactEffectPrefab; // 충돌 시 생성될 이펙트 프리팹
 
     public void Initialize(Vector3 targetPosition, GameObject impactEffectPrefab)
