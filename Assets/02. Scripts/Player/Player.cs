@@ -134,7 +134,7 @@ public class Player : MonoBehaviour, IHitable
                 exp.position = Vector2.MoveTowards(
                     exp.position,
                     transform.position,
-                    5f * Time.deltaTime
+                    10f * Time.deltaTime
                 );
             }
         }

@@ -10,11 +10,14 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] public Player player;
     [SerializeField] private GameObject gameOver;
 
+    public bool[] clear { get; private set; } = new bool[5];
     public int sceneNum { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
+
+        clear = new bool[] { false, false, false, false, false };
 
         // 씬 로드 이벤트에 등록
         SceneManager.sceneLoaded += OnSceneLoaded;
