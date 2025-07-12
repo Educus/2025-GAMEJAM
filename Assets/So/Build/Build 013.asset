@@ -17,3 +17,5 @@ MonoBehaviour:
   buildDescription: 
   buildType: 0
   upgradeBuild: {fileID: 0}
+  buildStat: {fileID: 0}
+  buildSkill: {fileID: 11400000, guid: 80379223e974c254089e5864d034992a, type: 2}

@@ -16,4 +16,6 @@ MonoBehaviour:
   buildKorName: "\uC778\uB0E5\uC804\uC220"
   buildDescription: 
   buildType: 0
-  upgradeBuild: {fileID: 0}
+  upgradeBuild: {fileID: 11400000, guid: 37cce9fbf8992624c9e50e31ff2f7cb0, type: 2}
+  buildStat: {fileID: 0}
+  buildSkill: {fileID: 11400000, guid: ccbe5c2f16b95a24aaded3c070eb99ed, type: 2}

@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class Enemy : MonoBehaviour, IHitable
 {
-    protected SoEnemy enemyData;
+    [SerializeField] protected SoEnemy enemyData;
 
     private string enemyKorName;
     private string enemyDescription;
@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour, IHitable
     private float speed;
 
     private SpriteRenderer sprite;
-    private Rigidbody2D rigid;
+    protected Rigidbody2D rigid;
     private CapsuleCollider2D enemycollider;
 
     protected GameObject target;
@@ -65,6 +65,13 @@ public class Enemy : MonoBehaviour, IHitable
             if (GameManager.Instance.player == null) return;
             target = GameManager.Instance.player.gameObject;
         }
+
+        Vector2 direction = (target.transform.position - transform.position);
+        
+        if (direction.x > 0)
+            sprite.flipX = false;
+        else if (direction.x < 0)
+            sprite.flipX = true;
     }
 
     protected virtual void MoveToTarget()
@@ -72,12 +79,8 @@ public class Enemy : MonoBehaviour, IHitable
         if (target == null) return;
 
         Vector2 direction = (target.transform.position - transform.position).normalized;
-        rigid.velocity = direction * speed;
-
-        if (direction.x > 0)
-            sprite.flipX = false;
-        else if (direction.x < 0)
-            sprite.flipX = true;
+        // rigid.velocity = direction * speed;
+        rigid.velocity = direction * enemyData.mMoveSpeed; // 임시 디버깅용
     }
 
     public void IHit(int damage)

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerBuild : Singleton<PlayerBuild>
 {
+    [SerializeField] private List<SoBuild> allList = new List<SoBuild>();
+
     [SerializeField] private List<SoBuild> buildList = new List<SoBuild>();
     private GameObject attackObj = null;
 
@@ -96,6 +98,60 @@ public class PlayerBuild : Singleton<PlayerBuild>
     {
         lv++;
     }
+
+    [Tooltip("bool값은 점령여부, 뒤의 숫자는 넣지않으면 3개 출력, 넣으면 그 갯수만큼 출력")]
+    public List<SoBuild> GetRandomBuildChoices(bool isCaptured, int count = 3) 
+    {
+        List<SoBuild> selectable = new List<SoBuild>();
+
+        foreach (var build in allList)
+        {
+            switch (build.mBuildType)
+            {
+                case BuildType.Stat:
+                    // SoStat은 조건 없이 포함
+                    selectable.Add(build);
+                    break;
+
+                case BuildType.Skill:
+                    var skill = build.mBuildSkill;
+
+                    if (skill == null) continue;
+
+                    // 3강 완료 시 제외
+                    if (skill.isSkill3) continue;
+
+                    // 1강 대상
+                    if (!skill.isSkill1)
+                    {
+                        selectable.Add(build);
+                    }
+                    // 2강 대상
+                    else if (skill.isSkill1 && !skill.isSkill2)
+                    {
+                        selectable.Add(build);
+                    }
+                    // 3강 대상 (점령 상태일 경우에만)
+                    else if (skill.isSkill1 && skill.isSkill2 && !skill.isSkill3 && isCaptured)
+                    {
+                        selectable.Add(build);
+                    }
+
+                    break;
+            }
+        }
+
+        // 셔플
+        for (int i = 0; i < selectable.Count; i++)
+        {
+            int rand = Random.Range(i, selectable.Count);
+            (selectable[i], selectable[rand]) = (selectable[rand], selectable[i]);
+        }
+
+        // 최대 count개 추출
+        return selectable.GetRange(0, Mathf.Min(count, selectable.Count));
+    }
+
     public void Reset()
     {
         buildList.Clear();

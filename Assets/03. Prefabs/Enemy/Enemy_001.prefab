@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5167344469874540235}
   - component: {fileID: 1426100390336819145}
   - component: {fileID: 4255984565537505254}
-  - component: {fileID: 130858285629947198}
+  - component: {fileID: 1538093299833453670}
   m_Layer: 0
   m_Name: Enemy_001
   m_TagString: Untagged
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -171,7 +171,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.9433334, y: 1.1333333}
   m_Direction: 0
---- !u!114 &130858285629947198
+--- !u!114 &1538093299833453670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,7 +180,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7392667661524791038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1e0657432c1394180733b37d6fe05b, type: 3}
+  m_Script: {fileID: 11500000, guid: e9e08718e250fbb40837e17fad722159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: ab548c2f60b3b9b46b3a578dda0dc775, type: 2}
+  enemyData: {fileID: 0}
+  projectilePrefab: {fileID: 0}
