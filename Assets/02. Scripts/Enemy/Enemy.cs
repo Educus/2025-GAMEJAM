@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CapsuleCollider2D))]
 public class Enemy : MonoBehaviour, IHitable
 {
-    private SoEnemy enemyData;
+    protected SoEnemy enemyData;
 
     private string enemyKorName;
     private string enemyDescription;
@@ -18,11 +18,11 @@ public class Enemy : MonoBehaviour, IHitable
     private Rigidbody2D rigid;
     private CapsuleCollider2D enemycollider;
 
-    private GameObject target;
+    protected GameObject target;
 
     private int hp;
 
-    void Start()
+    protected virtual void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour, IHitable
         hp = maxHp;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         FindPlayer();
         MoveToTarget();
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour, IHitable
         }
     }
 
-    private void MoveToTarget()
+    protected virtual void MoveToTarget()
     {
         if (target == null) return;
 
@@ -90,8 +90,25 @@ public class Enemy : MonoBehaviour, IHitable
 
     private void Dead()
     {
-        // GameManager.Instance.player.GetComponent<Player>().GainExp(enemyData.mExp);
+        DropExp();
+
         Destroy(gameObject);
+    }
+
+    private void DropExp()
+    {
+        // Resources 폴더 경로는 Resources/ 부터의 경로로 적어야 함
+        GameObject expPrefab = Resources.Load<GameObject>("Exp/ExpPrefab");
+
+        if (expPrefab != null)
+        {
+            GameObject exp = Instantiate(expPrefab, transform.position, Quaternion.identity);
+            exp.GetComponent<Exp>().exp = enemyData.mExp;
+        }
+        else
+        {
+            Debug.LogWarning("Exp 프리팹을 Resources/Exp/ExpPrefab 위치에서 찾을 수 없습니다.");
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

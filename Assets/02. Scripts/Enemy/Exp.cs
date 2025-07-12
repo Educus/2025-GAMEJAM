@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Exp : MonoBehaviour
 {
-    [HideInInspector] public int exp;
+    public int exp;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -13,5 +13,10 @@ public class Exp : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    public void SetExp(int value)
+    {
+        exp = value;
     }
 }

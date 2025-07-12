@@ -22,5 +22,5 @@ MonoBehaviour:
   moveSpeed: 2
   atk: 5
   atkSpeed: 0
-  atkRange: 0
-  exp: 0
+  atkRange: 8
+  exp: 10

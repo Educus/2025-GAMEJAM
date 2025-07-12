@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1604423482288807838}
   - component: {fileID: 3710948608660873300}
-  - component: {fileID: 2950240853319537795}
   - component: {fileID: 272197695628410608}
+  - component: {fileID: 2950240853319537795}
   m_Layer: 0
   m_Name: ExpPrefab
   m_TagString: Exp
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2950240853319537795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956652171952321104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f79567f6d77b7744aa6d88e290c176b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  exp: 0
 --- !u!58 &272197695628410608
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +121,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &2950240853319537795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956652171952321104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79567f6d77b7744aa6d88e290c176b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exp: 0
