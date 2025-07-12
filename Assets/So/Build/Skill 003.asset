@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b29b6139370f6e643a2b9c69badb23d0, type: 3}
-  m_Name: Skill 001
+  m_Name: Skill 003
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 8086850236980390057, guid: df9e33b7680263d4fac14774f54b0e45, type: 3}
+  skillPrefab: {fileID: 3235590564245934601, guid: bf73fa3475ae28f4dbb3dfc8477fe17a, type: 3}
   atk: 10
   cooltime: 10
   skillType: 1
   projectileDistance: 5
   projectileSpeed: 5
   projectileCount: 0
-  isSkill1: 0
-  isSkill2: 0
-  isSkill3: 0
+  isSkill1: 1
+  isSkill2: 1
+  isSkill3: 1

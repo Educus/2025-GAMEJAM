@@ -7,7 +7,7 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] private int fmaxHp = 100;
     [SerializeField] private int fatk = 20;                     // 공격력
     [SerializeField] private float frange = 5f;                 // 사거리
-    [SerializeField] private float fatkCount = 1f;              // 투사체 갯수
+    [SerializeField] private float fatkCount = 0f;              // 투사체 갯수
     [SerializeField] private float fcooltime = 0f;              // 쿨타임 감소되는 시간
     [SerializeField] private float fmoveSpeed = 8f;             // 이동속도
     [SerializeField] private float fcaptureSpeed = 1f;          // 점령시간

@@ -10,6 +10,10 @@ public class PlayerBuild : Singleton<PlayerBuild>
     private List<SoSkill> skillList = new List<SoSkill>();
     private List<SoStat> statList = new List<SoStat>();
 
+    public int lv { get; private set; } = 0;
+    private int maxExp = 100;
+    private int nowExp = 0;
+
     public int maxHp { get; private set; } = 0;
     public int atk {get; private set;} = 0;
     public float range {get; private set;} = 0;
@@ -77,6 +81,21 @@ public class PlayerBuild : Singleton<PlayerBuild>
         invincibilityTime += soStat.mCaptureSpeed;
     }
 
+    public void AddExp(int value)
+    {
+        nowExp += value;
+
+        if (nowExp > (maxExp + lv * 50))
+        {
+            nowExp -= (maxExp + lv * 50);
+            LvUp();
+        }
+    }
+
+    private void LvUp()
+    {
+        lv++;
+    }
     public void Reset()
     {
         buildList.Clear();

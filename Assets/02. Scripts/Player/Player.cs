@@ -33,6 +33,7 @@ public class Player : MonoBehaviour, IHitable
     {
         Move();
         Invincibility();
+        PullNearbyExp();
     }
 
     private void FixedUpdate()
@@ -108,6 +109,26 @@ public class Player : MonoBehaviour, IHitable
         yield return new WaitForSeconds(duration);
 
         enabled = true;
+    }
+
+    private void PullNearbyExp()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 5f);
+
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag("Exp"))
+            {
+                Transform exp = hit.transform;
+
+                // 현재 위치 → 플레이어 위치로 조금씩 이동
+                exp.position = Vector2.MoveTowards(
+                    exp.position,
+                    transform.position,
+                    5f * Time.deltaTime
+                );
+            }
+        }
     }
 }
 

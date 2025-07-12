@@ -16,7 +16,9 @@ MonoBehaviour:
   atk: 10
   cooltime: 2
   skillType: 1
-  projectileDistance: 5
-  projectileSpeed: 5
+  projectileDistance: 10
+  projectileSpeed: 8
+  projectileCount: 0
   isSkill1: 0
   isSkill2: 0
+  isSkill3: 0

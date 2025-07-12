@@ -34,7 +34,7 @@ public class Geteling : MonoBehaviour
         Vector2 direction = (target.transform.position - basePos).normalized;
 
         // 3. 원하는 위치 = basePos + 방향 * 2f
-        Vector2 finalPos = (Vector2)basePos + direction * 2f;
+        Vector2 finalPos = (Vector2)basePos + direction * 5f;
 
         // 4. 위치 이동
         transform.position = finalPos;
@@ -46,29 +46,36 @@ public class Geteling : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(hit)
+        if (collision.CompareTag("Enemy") && hit)
         {
-            if(collision.tag == "Enemy")
+            Debug.Log("닿음");
+
+            // 피해 주기
+            collision.GetComponent<IHitable>().IHit(damage);
+
+            // ultmit일 때만 밀기
+            if (ultmit)
             {
-                Debug.Log("닿음");
+                Debug.Log("밀침");
 
-                collision.GetComponent<IHitable>().IHit(damage);
+                Transform target = collision.transform;
 
-                if(ultmit)
+                // 방향 계산 (parent → target)
+                Vector2 direction = (target.position - (parent.transform.position + new Vector3(0f, 0.6f, 0f))).normalized;
+
+                // Rigidbody2D가 있을 경우, MovePosition 사용 권장
+                Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
+                if (rb != null)
                 {
-                    Debug.Log("밀침");
-                    Transform target = collision.transform;
-
-                    // 방향 계산
-                    Vector2 direction = (target.transform.position - parent.transform.position + new Vector3(0f, 0.6f, 0f)).normalized;
-
-                    // 위치 이동
-                    target.position += (Vector3)(direction * 2f);
+                    rb.MovePosition(rb.position + direction * 1f); // 1f = 밀치는 거리
+                }
+                else
+                {
+                    target.position += (Vector3)(direction * 1f);
                 }
             }
 
-
-            hit = false;
+            hit = false; // 타이머 초기화
         }
     }
 
