@@ -3,18 +3,28 @@ using UnityEngine.Animations;
 
 public class St1EliteController : MonoBehaviour
 {
-    public Transform player;               // 플레이어 위치
-    public GameObject rockPrefab;          // '락이다' 프리팹
+    public Transform player; // 플레이어 위치
+    public GameObject rockPrefab; // '락이다' 프리팹
     public GameObject warningEffectPrefab; // 경고 이펙트 프리팹
-    public GameObject impactEffectPrefab;  // 충돌 이펙트 프리팹
-    public float attackCooldown = 7f;      // 스킬 주기
-    public float attackRange = 10f;        // 공격 범위
-    public float moveSpeed = 2f;           // 이동 속도
+    public GameObject impactEffectPrefab; // 충돌 이펙트 프리팹
+    public float attackCooldown = 7f; // 스킬 주기
+    public float attackRange = 10f; // 공격 범위
+    public float moveSpeed = 2f; // 이동 속도
     public float followSpeed = 5f;
-    private float timer = 0f;              // 쿨타임 타이머
+    private float timer = 0f; // 쿨타임 타이머
+    public Animator animator;
     
 
-    private St1EliteState currentState;    // 현재 상태
+    private St1EliteState currentState; // 현재 상태
+
+    private void Awake()
+{
+    if (animator == null)
+    {
+        animator = GetComponent<Animator>();
+    }
+}
+
 
     private void Start()
     {
