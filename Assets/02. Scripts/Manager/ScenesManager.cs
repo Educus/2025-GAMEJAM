@@ -57,6 +57,8 @@ public class ScenesManager : Singleton<ScenesManager>
         {
             SceneManager.LoadScene(1);
         }
+
+        Back();
     }
 
     public void Setting()

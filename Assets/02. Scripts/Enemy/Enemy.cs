@@ -88,7 +88,19 @@ public class Enemy : MonoBehaviour, IHitable
         hp -= damage;
 
         if (hp <= 0)
+        {
             Dead();
+            return;
+        }
+
+        StartCoroutine(IEHitting());
+    }
+
+    IEnumerator IEHitting()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
     }
 
     private void Dead()

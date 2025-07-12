@@ -48,8 +48,8 @@ public class WaveManager : MonoBehaviour
         {
             tries++;
 
-            float x = Random.Range(bounds.min.x, bounds.max.x);
-            float y = Random.Range(bounds.min.y, bounds.max.y);
+            float x = Random.Range(bounds.min.x / 2, bounds.max.x / 2);
+            float y = Random.Range(bounds.min.y / 2, bounds.max.y / 2);
             Vector2 candidate = new Vector2(x, y);
 
             if (col.OverlapPoint(candidate))
