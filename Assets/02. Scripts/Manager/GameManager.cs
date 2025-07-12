@@ -8,6 +8,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject playerPrefab;
 
     [SerializeField] public Player player;
+    [SerializeField] private GameObject gameOver;
+
+    public int sceneNum { get; private set; }
 
     protected override void Awake()
     {
@@ -24,6 +27,7 @@ public class GameManager : Singleton<GameManager>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         ResetPlayer();
+        sceneNum = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void ResetPlayer()
@@ -39,4 +43,22 @@ public class GameManager : Singleton<GameManager>
         GameObject playerObj = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
         player = playerObj.GetComponent<Player>();
     }
+
+    public void GameOver()
+    {
+        gameOver.SetActive(true);
+        FindObjectOfType<GameOverUI>().ShowGameOver();
+
+        StartCoroutine(DropAndBounceAndLoadScene());
+    }
+    private IEnumerator DropAndBounceAndLoadScene()
+    {
+        // 5초 대기
+        yield return new WaitForSeconds(5f);
+
+        // 씬 0으로 이동
+        gameOver.SetActive(false);
+        SceneManager.LoadScene(0);
+    }
+
 }

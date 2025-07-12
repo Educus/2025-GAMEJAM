@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Skill001 : Skill
 {
+    [SerializeField] private GameObject obj;
     [SerializeField] private Geteling geteling;
+
 
     private bool isCooltime = false;
 

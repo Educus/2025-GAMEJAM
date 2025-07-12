@@ -3,7 +3,7 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     [SerializeField] private Transform player;         // 따라갈 플레이어
-    [SerializeField] private Collider2D backgroundBounds; // 배경 도형 (예: BoxCollider2D)
+    [SerializeField] public Collider2D backgroundBounds; // 배경 도형 (예: BoxCollider2D)
 
     private Camera camera;
     private float cameraHalfWidth;

@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerBuild : Singleton<PlayerBuild>
 {
+    [SerializeField] private Slider slider;
     [SerializeField] private List<SoBuild> allList = new List<SoBuild>();
 
     [SerializeField] private List<SoBuild> buildList = new List<SoBuild>();
@@ -31,6 +33,10 @@ public class PlayerBuild : Singleton<PlayerBuild>
         base.Awake();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+    private void Update()
+    {
+        slider.value = nowExp / (maxExp + lv * 50);
+    }
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -39,6 +45,7 @@ public class PlayerBuild : Singleton<PlayerBuild>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         ResetSkillLevels();
+        Reset();
     }
 
     private void ResetSkillLevels()
@@ -63,7 +70,7 @@ public class PlayerBuild : Singleton<PlayerBuild>
                 buildList.Add(soBuild);
                 skillList.Add(soBuild.mBuildSkill);
                 AddSkill(soBuild.mBuildSkill);
-                Debug.Log("胶懦 积己");
+                Debug.Log(soBuild.mBuildName + " 胶懦 积己");
             }
             else if(soBuild.mBuildSkill.isSkill3 == true) // 泵必老锭?
             {

@@ -34,6 +34,15 @@ public class Player : MonoBehaviour, IHitable
         Move();
         Invincibility();
         PullNearbyExp();
+
+        if(GameManager.Instance.sceneNum < 2)
+        {
+            hpBar.gameObject.SetActive(false);
+        }
+        else
+        {
+            hpBar.gameObject.SetActive(true);
+        }
     }
 
     private void FixedUpdate()

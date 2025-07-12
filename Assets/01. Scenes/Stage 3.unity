@@ -478,6 +478,59 @@ Transform:
   - {fileID: 173924330}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1670623948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1670623950}
+  - component: {fileID: 1670623949}
+  m_Layer: 0
+  m_Name: WaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1670623949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670623948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b204ef40641b9f4da31821460556ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - {fileID: 11400000, guid: c43ab0c3b33f94548872bcde236233d1, type: 2}
+  - {fileID: 11400000, guid: e1b294593ccc1f84abe312b6a0144e48, type: 2}
+  - {fileID: 11400000, guid: cd86524971acbd94ea943e8ff20ca790, type: 2}
+  - {fileID: 11400000, guid: a96cc405b26b00646b71f25ca3da52ae, type: 2}
+  - {fileID: 11400000, guid: 55c84dede6f55f049b58b0c4ecc5a061, type: 2}
+  spawnPoints: []
+  spawnInterval: 30
+  col: {fileID: 1948709612}
+--- !u!4 &1670623950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670623948}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1948709610
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +650,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: 2e469a3072ab68647b018ab232b059c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab45830a58f1afd4e808befa6d7ea02a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -683,3 +736,4 @@ SceneRoots:
   - {fileID: 383557605}
   - {fileID: 769778817}
   - {fileID: 2110141640}
+  - {fileID: 1670623950}
