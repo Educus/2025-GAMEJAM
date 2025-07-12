@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildSprite: {fileID: 21300000, guid: 709b190205377c74387d2332a6ddafef, type: 3}
   buildKorName: "\uC810\uB839\uC758 \uBE44\uACB0"
-  buildDescription: 
+  buildDescription: "\"\uB2C8\uAEC0 \uB0B4\uAEBC, \"\uB0B4\uAEC0 \uB0B4\uAEBC\"\uB77C\uB294
+    \uBA85\uC5B8\uC744 \uB4E4\uC5C8\uB2E4. \uC810\uB839 \uAC8C\uC774\uC9C0 \uC0C1\uC2B9\uB960\uC774
+    \uC18C\uD3ED \uC99D\uAC00\uD55C\uB2E4."
   buildType: 1
   upgradeBuild: {fileID: 0}
   buildStat: {fileID: 11400000, guid: 9a1f7966bcbf6c74abc19472c7a11065, type: 2}

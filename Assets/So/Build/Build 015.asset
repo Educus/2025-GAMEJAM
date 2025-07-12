@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildSprite: {fileID: 21300000, guid: 59f4b7763ef2ae544bed36ed6fc27f30, type: 3}
   buildKorName: "\uAC1C\uC870 \uB0E5\uBE54"
-  buildDescription: 
+  buildDescription: "\uBC1C\uC0AC\uB41C \uB808\uC774\uC800\uAC00 \uBCBD\uC5D0 5\uD68C
+    \uD295\uAE30\uBA70 \uB9F5 \uC804\uC5ED\uC744 \uC120\uD68C\uD55C\uB2E4. "
   buildType: 0
   upgradeBuild: {fileID: 0}
   buildStat: {fileID: 0}

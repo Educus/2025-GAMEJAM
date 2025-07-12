@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildSprite: {fileID: 21300000, guid: 5f8dc1fa399c84249a325271e6b60167, type: 3}
   buildKorName: "\uC778\uB0E5\uC804\uC220"
-  buildDescription: 
+  buildDescription: "\uB178\uC544\uAC00 15\uCD08 \uB3D9\uC548 \uC720\uC9C0\uB418\uB294
+    \uC791\uC740 \uB0E5\uCEA3\uB4E4\uC744 2\uB9C8\uB9AC \uC18C\uD658\uD55C\uB2E4.
+    \uB0E5\uCEA3\uC740 \uD50C\uB808\uC774\uC5B4\uC758 \uAE30\uBCF8 \uACF5\uACA9\uC744
+    \uBAA8\uBC29\uD558\uBA70, \uD50C\uB808\uC774\uC5B4 \uCD5C\uB300 \uCCB4\uB825\uC758
+    50%\uC758 \uCCB4\uB825\uC73C\uB85C \uC2A4\uD3F0\uD55C\uB2E4. [\uC7AC\uC0AC\uC6A9
+    \uB300\uAE30\uC2DC\uAC04: 10\uCD08]"
   buildType: 0
   upgradeBuild: {fileID: 11400000, guid: 37cce9fbf8992624c9e50e31ff2f7cb0, type: 2}
   buildStat: {fileID: 0}
