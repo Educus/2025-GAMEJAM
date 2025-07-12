@@ -19,6 +19,7 @@ public class Skill006 : Skill
         GameObject target = FindClosestEnemys();
 
         if (target == null) target = FindClosestEnemy();
+        if (target == null) return;
 
         GameObject missile = Instantiate(missilePrefab, transform.position + new Vector3(0, 1.6f), Quaternion.identity);
         missile.GetComponent<Missile>().damage = totalAtk;

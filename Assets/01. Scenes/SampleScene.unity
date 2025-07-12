@@ -155,7 +155,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2115620762}
-  m_Father: {fileID: 684965600}
+  m_Father: {fileID: 1511929704}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -335,7 +335,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342962615}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -343,7 +343,7 @@ RectTransform:
   - {fileID: 1539296608}
   - {fileID: 1067161141}
   - {fileID: 1846462270}
-  m_Father: {fileID: 684965600}
+  m_Father: {fileID: 1511929704}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -761,8 +761,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 342962616}
-  - {fileID: 836980}
+  - {fileID: 1511929704}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -783,6 +782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardSlotPrefab: {fileID: 4488508558832031693, guid: 18a52ca4f6637b048ad4af149eaf8f77, type: 3}
+  obj: {fileID: 0}
   cardPanel: {fileID: 342962616}
   rerollButton: {fileID: 836981}
   isCaptured: 0
@@ -1154,6 +1154,43 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9220821074163212478, guid: 58167dbdc399f714cb716301af2f93ac, type: 3}
   m_PrefabInstance: {fileID: 1021267302581393593}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1511929703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511929704}
+  m_Layer: 5
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1511929704
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511929703}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 342962616}
+  - {fileID: 836980}
+  m_Father: {fileID: 684965600}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1539296608 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7568775636406679935, guid: 18a52ca4f6637b048ad4af149eaf8f77, type: 3}
@@ -1201,13 +1238,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 55f2360025d71b34085b2778094b0bf1, type: 2}
   - {fileID: 11400000, guid: f979e4cfeb6a59940b5ac5578f9a54fa, type: 2}
   - {fileID: 11400000, guid: 8d436fd22ad46b349975bae755d89639, type: 2}
-  - {fileID: 11400000, guid: 82cdd6aec96dbb641832a5cd2f6d05a0, type: 2}
-  - {fileID: 11400000, guid: 37cce9fbf8992624c9e50e31ff2f7cb0, type: 2}
-  - {fileID: 11400000, guid: d83d0200c4279a94bb3daa8ef8aee9bf, type: 2}
-  - {fileID: 11400000, guid: e4546055e77f8fc4cac0f3b9229fd963, type: 2}
-  - {fileID: 11400000, guid: 64941e5c3f2c97c4894b588a3225eaa3, type: 2}
-  - {fileID: 11400000, guid: 9de84d897c95c154bb6133325ee4b92e, type: 2}
   buildList: []
+  skillList: []
+  statList: []
 --- !u!4 &1544497944
 Transform:
   m_ObjectHideFlags: 0
@@ -2014,10 +2047,6 @@ PrefabInstance:
     - target: {fileID: 4488508558832031693, guid: 18a52ca4f6637b048ad4af149eaf8f77, type: 3}
       propertyPath: m_Name
       value: BuildCard_UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4488508558832031693, guid: 18a52ca4f6637b048ad4af149eaf8f77, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7568775636406679935, guid: 18a52ca4f6637b048ad4af149eaf8f77, type: 3}
       propertyPath: m_Pivot.x

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBuild : Singleton<PlayerBuild>
 {
@@ -9,8 +10,8 @@ public class PlayerBuild : Singleton<PlayerBuild>
     [SerializeField] private List<SoBuild> buildList = new List<SoBuild>();
     private GameObject attackObj = null;
 
-    private List<SoSkill> skillList = new List<SoSkill>();
-    private List<SoStat> statList = new List<SoStat>();
+    public List<SoSkill> skillList = new List<SoSkill>();
+    public List<SoStat> statList = new List<SoStat>();
 
     public int lv { get; private set; } = 0;
     private int maxExp = 100;
@@ -25,6 +26,34 @@ public class PlayerBuild : Singleton<PlayerBuild>
     public float captureSpeed {get; private set;} = 0;
     public float invincibilityTime {get; private set;} = 0;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ResetSkillLevels();
+    }
+
+    private void ResetSkillLevels()
+    {
+        foreach (var build in allList)
+        {
+            if (build.mBuildType == BuildType.Skill && build.mBuildSkill != null)
+            {
+                var skill = build.mBuildSkill;
+                skill.isSkill1 = false;
+                skill.isSkill2 = false;
+                skill.isSkill3 = false;
+            }
+        }
+    }
     public void AddBuild(SoBuild soBuild)
     {
         if (soBuild.mBuildType == BuildType.Skill)
@@ -97,6 +126,7 @@ public class PlayerBuild : Singleton<PlayerBuild>
     private void LvUp()
     {
         lv++;
+        BuildCardManager.Instance.ShowBuildChoicesUI();
     }
 
     [Tooltip("bool값은 점령여부, 뒤의 숫자는 넣지않으면 3개 출력, 넣으면 그 갯수만큼 출력")]
@@ -157,5 +187,14 @@ public class PlayerBuild : Singleton<PlayerBuild>
         buildList.Clear();
         statList.Clear();
         skillList.Clear();
+
+        maxHp = 0;
+        atk = 0;
+        range = 0;
+        atkCount = 0;
+        cooltime = 0;
+        moveSpeed = 0;
+        captureSpeed = 0;
+        invincibilityTime = 0;
     }
 }

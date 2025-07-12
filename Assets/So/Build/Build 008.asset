@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd4c14cc446b8444bb8eb93b6d80361, type: 3}
   m_Name: Build 008
   m_EditorClassIdentifier: 
-  buildSprite: {fileID: 0}
+  buildSprite: {fileID: 21300000, guid: 159ec9733cf588342b19eb3cc76b145b, type: 3}
   buildKorName: "\uAC15\uD568\uC758 \uBE44\uACB0"
   buildDescription: 
   buildType: 1

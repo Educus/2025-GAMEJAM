@@ -6,7 +6,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T instance;
     private static bool applicationIsQuitting = false;
-    private static object lockObj = new object();
+
     public static T Instance
     {
         get
@@ -17,22 +17,10 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 return null;
             }
 
-            lock (lockObj)
-            {
-                if (instance == null)
-                {
-                    instance = (T)FindObjectOfType(typeof(T));
-
-                    if (instance == null)
-                    {
-                        Debug.LogError($"[Singleton] No instance of {typeof(T)} found in scene.");
-                    }
-                }
-
-                return instance;
-            }
+            return instance;
         }
     }
+
     protected virtual void Awake()
     {
         if (instance == null)
@@ -42,7 +30,12 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
         else if (instance != this)
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // 중복 제거
         }
     }
+
+    protected virtual void OnApplicationQuit()
+    {
+        applicationIsQuitting = true;
+       }
 }

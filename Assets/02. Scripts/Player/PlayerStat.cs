@@ -24,13 +24,10 @@ public class PlayerStat : MonoBehaviour
     public float invincibilityTime {get; private set; }
 
     private PlayerBuild build;
-    private void Awake()
-    {
-        build = PlayerBuild.Instance.GetComponent<PlayerBuild>();
-    }
     private void Start()
     {
         hp = fmaxHp;  // 초기 HP 설정
+        build = PlayerBuild.Instance.GetComponent<PlayerBuild>();
     }
     private void Update()
     {

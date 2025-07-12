@@ -19,6 +19,6 @@ MonoBehaviour:
   projectileDistance: 5
   projectileSpeed: 5
   projectileCount: 0
-  isSkill1: 1
-  isSkill2: 1
-  isSkill3: 1
+  isSkill1: 0
+  isSkill2: 0
+  isSkill3: 0

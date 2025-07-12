@@ -8,6 +8,7 @@ public class BuildCardManager : Singleton<BuildCardManager>
 {
     [Header("UI 요소")]
     [SerializeField] private GameObject cardSlotPrefab;
+    [SerializeField] private GameObject obj;
     [SerializeField] private Transform cardPanel; // 카드 슬롯들이 들어갈 부모
     [SerializeField] private Button rerollButton;
 
@@ -17,14 +18,16 @@ public class BuildCardManager : Singleton<BuildCardManager>
     private void Start()
     {
         rerollButton.onClick.AddListener(ShowBuildChoicesUI);
-        ShowBuildChoicesUI();
+        obj.gameObject.SetActive(false);
     }
 
     /// <summary>
     /// 카드 3개 UI 생성
     /// </summary>
-    private void ShowBuildChoicesUI()
+    public void ShowBuildChoicesUI()
     {
+        obj.gameObject.SetActive(true);
+        Time.timeScale = 0f;
         // 기존 카드 제거
         foreach (Transform child in cardPanel)
         {
@@ -60,6 +63,7 @@ public class BuildCardManager : Singleton<BuildCardManager>
     private void OnCardSelected(SoBuild selected)
     {
         PlayerBuild.Instance.AddBuild(selected);
+        Time.timeScale = 1f;
 
         // UI 제거
         foreach (Transform child in cardPanel)
@@ -67,6 +71,7 @@ public class BuildCardManager : Singleton<BuildCardManager>
             Destroy(child.gameObject);
         }
 
+        obj.gameObject.SetActive(false);
         // TODO: 다음 단계로 넘어가는 처리 (예: 강화 완료 표시, 닫기 등)
     }
 }

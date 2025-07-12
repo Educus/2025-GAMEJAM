@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29b6139370f6e643a2b9c69badb23d0, type: 3}
   m_Name: Skill 004
   m_EditorClassIdentifier: 
-  skillPrefab: {fileID: 3235590564245934601, guid: bf73fa3475ae28f4dbb3dfc8477fe17a, type: 3}
+  skillPrefab: {fileID: 2630208621623280851, guid: 1eec1593725f9ed4bbcafc5fe11d40df, type: 3}
   atk: 10
   cooltime: 10
   skillType: 1
