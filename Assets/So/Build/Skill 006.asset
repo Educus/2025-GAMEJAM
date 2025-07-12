@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Skill 006
   m_EditorClassIdentifier: 
   skillPrefab: {fileID: 9221617163388322496, guid: ff0523e5076ef7348b97ff12469997e0, type: 3}
-  atk: 10
-  cooltime: 10
+  atk: 30
+  cooltime: 7
   skillType: 1
-  projectileDistance: 3
-  projectileSpeed: 8
-  projectileCount: 0
+  projectileDistance: 6
+  projectileSpeed: 2
+  projectileCount: 1
   isSkill1: 0
   isSkill2: 0
   isSkill3: 0

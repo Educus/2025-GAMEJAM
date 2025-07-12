@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdde9de87eb5ae7498ca80c34d3f97d1, type: 3}
   m_Name: Stat 007
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 30
   atk: 0
   cooltime: 0
   projectileRange: 0

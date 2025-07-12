@@ -16,6 +16,6 @@ MonoBehaviour:
   atk: 0
   cooltime: 0
   projectileRange: 0
-  projectileCount: 10
+  projectileCount: 1
   moveSpeed: 0
   captureSpeed: 0

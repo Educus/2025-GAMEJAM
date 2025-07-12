@@ -15,7 +15,7 @@ MonoBehaviour:
   hp: 0
   atk: 0
   cooltime: 0
-  projectileRange: 10
+  projectileRange: 1
   projectileCount: 0
   moveSpeed: 0
   captureSpeed: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stat 008
   m_EditorClassIdentifier: 
   hp: 0
-  atk: 10
+  atk: 20
   cooltime: 0
   projectileRange: 0
   projectileCount: 0

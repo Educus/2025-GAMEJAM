@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 0
   atk: 0
-  cooltime: 10
+  cooltime: 1
   projectileRange: 0
   projectileCount: 0
   moveSpeed: 0
