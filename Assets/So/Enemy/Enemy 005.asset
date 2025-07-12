@@ -18,9 +18,9 @@ MonoBehaviour:
   enemyDescription: "\uC0AC\uB9C9 \uC5EC\uC6B0\uB2E4. \uAF2C\uB9AC\uAC00 \uB2EC\uB9B0\uAC83\uACFC\uB294
     \uB2E4\uB974\uAC8C, \uC785\uC5D0\uC11C \uC5EC\uC6B0 \uBD88\uC744 \uBC1C\uC0AC\uD55C\uB2E4."
   enemyType: 1
-  hp: 10
-  moveSpeed: 0
-  atk: 5
-  atkSpeed: 0
-  atkRange: 8
-  exp: 0
+  hp: 650
+  moveSpeed: 3
+  atk: 18
+  atkSpeed: 3
+  atkRange: 7
+  exp: 150
