@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 
 /// <summary>
 /// 보스의 상태를 관리하는 컨트롤러.
@@ -15,28 +16,61 @@ public class HwaBossController : MonoBehaviour
     public float moveSpeed = 3f;           // 이동 속도
     private float attackCooldown = 5f;     // 공격 대기 시간
     private float timer = 0f;              // 쿨타임 타이머
+    public Animator animator;
+
+    private void Awake()
+    {
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        if (player == null)
+        {
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            if (playerObject != null)
+            {
+                player = playerObject.transform;
+            }
+            else
+            {
+                Debug.LogError("Player with tag 'Player' not found!");
+            }
+        }
+    }
+
+    public void SelectNextSkill()
+    {
+        float random = Random.Range(0f, 1f);
+
+        if (random < 0.5f)
+            ChangeState(new HwaEarthquakeAttack());
+        else
+            ChangeState(new HwaFireStoneAttack());
+    }
+
+    private void Update()
+{
+    timer += Time.deltaTime;
+    currentState?.OnUpdate();
+
+    if (timer >= attackCooldown && currentState is HwaIdleState)
+    {
+        timer = 0f;
+        float rand = Random.value;
+        if (rand < 0.5f)
+            ChangeState(new HwaFireStoneAttack());
+        else
+            ChangeState(new HwaEarthquakeAttack());
+    }
+}
 
     private void Start()
     {
         ChangeState(new HwaIdleState()); // 초기 상태: 대기
     }
 
-    private void Update()
-    {
-        timer += Time.deltaTime;
-        currentState?.OnUpdate();
-
-        // 5초 대기 후 스킬 실행
-        if (timer >= attackCooldown && currentState is HwaIdleState)
-        {
-            timer = 0f;
-            float rand = Random.value;
-            if (rand < 0.5f)
-                ChangeState(new HwaFireStoneAttack());
-            else
-                ChangeState(new HwaEarthquakeAttack());
-        }
-    }
+    
 
     /// <summary>
     /// 상태를 변경합니다.

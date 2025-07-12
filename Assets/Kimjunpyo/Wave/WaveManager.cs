@@ -45,9 +45,18 @@ public class WaveManager : MonoBehaviour
             {
                 Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-                GameObject enemyObj = Instantiate(enemyData.enemySO.mEnemyPrefab, spawnPoint.position, Quaternion.identity);
-                Enemy enemy = enemyObj.GetComponent<Enemy>();
-                enemy.SetData(enemyData.enemySO, wave.hpMultiplier, wave.atkMultiplier);
+                GameObject prefabToSpawn = enemyData.overridePrefab != null
+                    ? enemyData.overridePrefab
+                    : enemyData.enemySO.mEnemyPrefab;
+
+                GameObject enemyObj = Instantiate(prefabToSpawn, spawnPoint.position, Quaternion.identity);
+
+                // overridePrefab이 null일 때만 SO 방식으로 세팅
+                if (enemyData.overridePrefab == null)
+                {
+                    Enemy enemy = enemyObj.GetComponent<Enemy>();
+                    enemy.SetData(enemyData.enemySO, wave.hpMultiplier, wave.atkMultiplier);
+                }
 
                 yield return new WaitForSeconds(0.1f);
             }

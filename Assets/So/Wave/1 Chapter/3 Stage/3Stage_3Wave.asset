@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b28ef4db47df142b5b3a31d0b49f90, type: 3}
+  m_Name: 3Stage_3Wave
+  m_EditorClassIdentifier: 
+  enemies:
+  - enemySO: {fileID: 11400000, guid: 472614fb38f14c64c9050e2426cb9fa3, type: 2}
+    overridePrefab: {fileID: 0}
+    count: 25
+  - enemySO: {fileID: 11400000, guid: e1d56b762c8506643a4c400a0e070b86, type: 2}
+    overridePrefab: {fileID: 0}
+    count: 25
+  hpMultiplier: 2
+  atkMultiplier: 2

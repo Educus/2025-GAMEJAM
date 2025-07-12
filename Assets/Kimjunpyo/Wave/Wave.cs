@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Wave", menuName = "SO/Wave")]
+[CreateAssetMenu(fileName = "Wave", menuName = "So/Wave")]
 public class Wave : ScriptableObject
 {
     public List<WaveEnemyData> enemies;

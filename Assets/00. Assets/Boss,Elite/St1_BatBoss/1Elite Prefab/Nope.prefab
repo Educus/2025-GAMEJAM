@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4057179803404659420}
   - component: {fileID: 1263348768900445683}
   m_Layer: 0
-  m_Name: Elite1_Bat
+  m_Name: Nope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

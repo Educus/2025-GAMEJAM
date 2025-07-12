@@ -13,6 +13,6 @@ public class Stage5Enter : MonoBehaviour
     void OnMouseUp()
     {
         Color color = GetComponent<Renderer>().material.color;
-        color.a = 0.5f; // Set alpha to 50% 
+        color.a = 0.5f; 
     }
 }
