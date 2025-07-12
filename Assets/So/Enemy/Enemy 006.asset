@@ -19,7 +19,7 @@ MonoBehaviour:
     \uB3DB\uD600\uC788\uC73C\uBA70, \uD50C\uB808\uC774\uC5B4\uD55C\uD14C \uB2EC\uB77C
     \uBD99\uC5B4\uC11C \uACF5\uACA9\uD55C\uB2E4."
   enemyType: 0
-  hp: 800
+  hp: 300
   moveSpeed: 2
   atk: 10
   atkSpeed: 1

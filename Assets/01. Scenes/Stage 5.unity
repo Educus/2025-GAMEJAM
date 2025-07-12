@@ -514,7 +514,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4634653c1334060449fec540729d02ab, type: 2}
   - {fileID: 11400000, guid: 5b2cdff91a7aa1146a4b4ae44f8b52b0, type: 2}
   spawnPoints: []
-  spawnInterval: 30
+  spawnInterval: 15
   col: {fileID: 1121608249}
 --- !u!4 &846619458
 Transform:

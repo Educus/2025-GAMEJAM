@@ -18,7 +18,7 @@ MonoBehaviour:
   enemyDescription: "\uACE0\uAE09\uC9C4 \uC624\uB9AC\uB2E4. \uB3C8\uB3C4 \uB9CE\uC740\uC9C0
     \uB8E8\uBE44 \uB098\uC774\uD504\uB97C \uB358\uC9C4\uB2E4."
   enemyType: 1
-  hp: 1000
+  hp: 350
   moveSpeed: 3
   atk: 20
   atkSpeed: 3

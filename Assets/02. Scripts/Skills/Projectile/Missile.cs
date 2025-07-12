@@ -11,6 +11,12 @@ public class Missile : MonoBehaviour
     [HideInInspector] public float range;
 
     private float time = 3f;
+    private bool hasLaunchedEffectPlayed = false;
+
+    private void Start()
+    {
+    
+        }
 
     private void Update()
     {
@@ -18,9 +24,10 @@ public class Missile : MonoBehaviour
 
         if (time < 0)
         {
-            ApplyAOEDamage(Vector2.zero);
+            ApplyAOEDamage(transform.position);
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -31,15 +38,13 @@ public class Missile : MonoBehaviour
 
     private void ApplyAOEDamage(Vector2 center)
     {
-        // 1. ÁÖº¯ Äİ¶óÀÌ´õ °¨Áö (2D Physics OverlapCircle »ç¿ë)
+        // ì£¼ë³€ ë²”ìœ„ ì•ˆì˜ ì  íƒì§€
         Collider2D[] hits = Physics2D.OverlapCircleAll(center, range);
 
         foreach (Collider2D hit in hits)
         {
-            // 2. "Enemy" ÅÂ±× ¿©ºÎ È®ÀÎ
             if (hit.CompareTag("Enemy"))
             {
-                // 3. IHitable ÀÎÅÍÆäÀÌ½º Àû¿ëµÈ °æ¿ì¿¡¸¸ ÇÇÇØ
                 IHitable target = hit.GetComponent<IHitable>();
                 if (target != null)
                 {
@@ -48,9 +53,10 @@ public class Missile : MonoBehaviour
             }
         }
 
-        if (ultmit)
+        // ê¶ê·¹ê¸° ë²„ì „ì´ë¼ë©´ ì›…ë©ì´ ìƒì„±
+        if (ultmit && puddlePrefab != null)
         {
-            GameObject puddle = Instantiate(puddlePrefab, transform.position, Quaternion.identity);
+            Instantiate(puddlePrefab, transform.position, Quaternion.identity);
         }
 
         Destroy(gameObject);
