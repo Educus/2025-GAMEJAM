@@ -21,7 +21,7 @@ MonoBehaviour:
   enemyType: 0
   hp: 400
   moveSpeed: 2
-  atk: 23
+  atk: 10
   atkSpeed: 4
   atkRange: 2
   exp: 250
