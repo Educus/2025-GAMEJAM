@@ -12,6 +12,7 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] private float fmoveSpeed = 8f;             // 이동속도
     [SerializeField] private float fcaptureSpeed = 1f;          // 점령시간
     [SerializeField] private float finvincibilityTime = 0.5f;   // 무적시간
+    private bool dead = false;
 
     public int maxHp { get; private set; }
     public int hp { get; private set; }
@@ -58,7 +59,14 @@ public class PlayerStat : MonoBehaviour
 
     public void Damage(int value)
     {
+        if (dead) return;
+
         hp -= value;
+
+        if (hp <= 0)
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 
 }

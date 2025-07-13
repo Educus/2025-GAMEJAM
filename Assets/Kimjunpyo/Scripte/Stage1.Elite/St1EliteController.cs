@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.Animations;
 
-public class St1EliteController : MonoBehaviour
+public class St1EliteController : MonoBehaviour, IHitable
 {
+    [SerializeField] int hp = 500;
+
     public Transform player; // 플레이어 위치
     public GameObject rockPrefab; // '락이다' 프리팹
     public GameObject warningEffectPrefab; // 경고 이펙트 프리팹
@@ -13,7 +15,6 @@ public class St1EliteController : MonoBehaviour
     public float followSpeed = 5f;
     private float timer = 0f; // 쿨타임 타이머
     public Animator animator;
-    
 
     private St1EliteState currentState; // 현재 상태
 
@@ -77,5 +78,15 @@ public class St1EliteController : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.localPosition, attackRange); // 공격 범위 시각화
+    }
+
+    public void IHit(int damage)
+    {
+        hp -= damage;
+
+        if(hp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

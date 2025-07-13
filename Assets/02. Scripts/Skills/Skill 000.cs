@@ -6,6 +6,22 @@ public class Skill000 : Skill
 {
     [SerializeField] private GameObject bulletPrefab;
 
+    private void Start()
+    {
+        StartCoroutine(IEShot());
+    }
+    protected override void Update()
+    {
+        return;
+    }
+    
+    IEnumerator IEShot()
+    {
+        yield return new WaitForSeconds(2f);
+
+        Attack();
+    }
+
     public override void Attack()
     {
         GameObject target = FindClosestEnemy();

@@ -83,7 +83,9 @@ public class WaveManager : MonoBehaviour
 
         int enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
-        if (currentWaveIndex >= waves.Count && enemyCount == 0 && !isClearTriggered)
+        bool isLastWave = currentWaveIndex >= waves.Count - 1;
+
+        if (isLastWave && enemyCount == 0 && !isClearTriggered)
         {
             isClearTriggered = true;
             Clear();
