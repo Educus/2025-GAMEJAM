@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject playerPrefab;
 
     [SerializeField] public Player player;
+    [SerializeField] private GameObject gameClear;
     [SerializeField] private GameObject gameOver;
 
     public bool[] clear { get; private set; } = new bool[5];
@@ -18,6 +19,8 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
 
         clear = new bool[] { false, false, false, false, false };
+        gameClear.SetActive(false);
+        gameOver.SetActive(false);
 
         // 씬 로드 이벤트에 등록
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -67,5 +70,17 @@ public class GameManager : Singleton<GameManager>
     public void StageClear()
     {
         clear[SceneManager.GetActiveScene().buildIndex - 2] = true;
+
+        StartCoroutine(IEClear());
+
+        gameClear.SetActive(true);
+    }
+
+    IEnumerator IEClear()
+    {
+        yield return new WaitForSeconds(3f);
+
+        gameClear.SetActive(false);
+        SceneManager.LoadScene(1);
     }
 }

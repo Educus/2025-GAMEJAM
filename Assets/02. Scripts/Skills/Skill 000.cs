@@ -17,9 +17,12 @@ public class Skill000 : Skill
     
     IEnumerator IEShot()
     {
-        yield return new WaitForSeconds(2f);
+        while (true)
+        {
+            yield return new WaitForSeconds(2f);
 
-        Attack();
+            Attack();
+        }
     }
 
     public override void Attack()

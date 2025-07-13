@@ -16,7 +16,7 @@ public class StageSelectManager : MonoBehaviour
                 images[i].raycastTarget = false;
                 images[i].color = new Color(0.3f, 0.3f, 0.3f);
 
-                images[i].gameObject.GetComponent<Button>().onClick.RemoveAllListeners();
+                images[i].gameObject.GetComponent<Button>().interactable = false;
             }
         }
     }

@@ -66,6 +66,7 @@ public class PlayerStat : MonoBehaviour
         if (hp <= 0)
         {
             GameManager.Instance.GameOver();
+            dead = true;
         }
     }
 

@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soSkill: {fileID: 11400000, guid: b45f1cb669c7d8844864b8a8e85f4941, type: 2}
-  canBoomPrefab: {fileID: 0}
+  canBoomPrefab: {fileID: 370491920031087732, guid: da67720816ec89b4ca5627783db44aa8, type: 3}
