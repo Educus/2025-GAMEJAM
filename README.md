@@ -27,3 +27,7 @@
 + Unity 2022.3.16f1
 + Visual Studio 2022
 
+
+### 게임 다운로드
+
+https://drive.google.com/drive/folders/1PE_vaILNpaL8RiF3KhfXey9ZI0Ggf-S9?usp=sharing
